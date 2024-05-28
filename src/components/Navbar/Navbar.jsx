@@ -3,6 +3,7 @@ import './Navbar.css'
 import logo from '../../assets/logo.png'
 import arrow_icon from '../../assets/arrow_icon.png'
 import { CoinContext } from '../../context/CoinContext'
+import { Link } from 'react-router-dom'
 
 export const Navbar = () => {
   const {setCurrency} = useContext(CoinContext)
@@ -28,9 +29,11 @@ export const Navbar = () => {
   }
   return (
     <div className='navbar'>
-      <img src={logo} alt='logo' className='logo'/>
+      <Link to={'/'}>
+        <img src={logo} alt='logo' className='logo'/>
+      </Link>
       <ul>
-        <li>Home</li>
+        <Link to={'/'}><li>Home</li></Link>
         <li>Features</li>
         <li>Pricing</li>
         <li>Blog</li>
@@ -41,7 +44,9 @@ export const Navbar = () => {
           <option value="twd">TWD</option>
           <option value="eur">EUR</option>
         </select>
-        <button>Sign up <img src={arrow_icon} alt='arrow_icon'/></button>
+        <a href="https://www.coingecko.com/zh-tw" target='_blank'>
+          <button>More <img src={arrow_icon} alt='arrow_icon'/></button>
+        </a>
       </div>
     </div>
   )
